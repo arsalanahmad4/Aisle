@@ -3,4 +3,6 @@
     <string name="text_enter_otp">Get OTP</string>
     <string name="text_enter_number">Enter Your \nPhone Number</string>
     <string name="text_continue">Continue</string>
+    <string name="text_enter_the_otp">Enter The \nOTP</string>
+    <string name="verify_otp_wait_timer_text">00:%1$s</string>
 </resources>

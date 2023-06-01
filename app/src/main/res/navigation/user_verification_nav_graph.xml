@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/user_verification_nav_graph"
+    app:startDestination="@id/enterNumberFragment">
+
+    <fragment
+        android:id="@+id/enterNumberFragment"
+        android:name="com.example.aisle.ui.userverification.enternumber.EnterNumberFragment"
+        android:label="EnterNumberFragment" >
+        <action
+            android:id="@+id/action_enterNumberFragment_to_otpScreenFragment"
+            app:destination="@id/otpScreenFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/otpScreenFragment"
+        android:name="com.example.aisle.ui.userverification.verifyotp.OtpScreenFragment"
+        android:label="OtpScreenFragment" >
+        <action
+            android:id="@+id/action_otpScreenFragment_to_enterNumberFragment"
+            app:destination="@id/enterNumberFragment"
+            app:launchSingleTop="false" />
+    </fragment>
+</navigation>

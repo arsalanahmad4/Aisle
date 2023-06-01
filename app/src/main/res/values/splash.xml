@@ -6,6 +6,6 @@
 
         <item name="windowSplashScreenAnimatedIcon">@drawable/aisle_logo_black</item>
 
-        <item name="postSplashScreenTheme">@style/Theme.Aisle</item>
+        <item name="postSplashScreenTheme">@style/Theme.Aisle.NoActionBar</item>
     </style>
 </resources>

@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="30dp"
-    tools:context=".EnterNumberActivity">
+    android:padding="30dp">
 
     <TextView
         android:id="@+id/tvGetOtp"
@@ -80,16 +79,27 @@
         android:id="@+id/btnContinue"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@id/layoutEnterNumber"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/button_background"
+        android:paddingLeft="16dp"
+        android:paddingTop="10dp"
+        android:paddingRight="16dp"
+        android:paddingBottom="10dp"
         android:text="@string/text_continue"
         android:textAllCaps="false"
-        android:textSize="16sp"
-        android:paddingLeft="16dp"
-        android:paddingRight="16dp"
-        android:paddingTop="10dp"
-        android:paddingBottom="10dp"
-        android:background="@drawable/button_background"
         android:textColor="@color/black"
+        android:textSize="16sp" />
+
+    <ProgressBar
+        android:id="@+id/loading"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_gravity="center"
+        android:visibility="gone"
+        android:layout_toRightOf="@id/btnContinue"
         android:layout_below="@id/layoutEnterNumber"
-        android:layout_marginTop="16dp"/>
+        android:layout_marginTop="26dp"
+        android:layout_marginLeft="16dp" />
 
 </RelativeLayout>
