@@ -7,8 +7,10 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.bumptech.glide.request.RequestOptions
 import com.example.aisle.R
 import com.example.aisle.data.model.ProfileX
+import jp.wasabeef.glide.transformations.BlurTransformation
 
 class LikesAdapter(private val mData: List<ProfileX>) : RecyclerView.Adapter<LikesAdapter.LikesViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): LikesViewHolder {
@@ -40,7 +42,7 @@ class LikesAdapter(private val mData: List<ProfileX>) : RecyclerView.Adapter<Lik
 
             Glide.with(itemView.context)
                 .load(data.avatar)
-                .centerCrop()
+                .apply(RequestOptions.bitmapTransform( BlurTransformation(25, 3)))
                 .into(imageView)
         }
     }
