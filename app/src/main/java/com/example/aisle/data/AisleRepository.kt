@@ -11,4 +11,7 @@ class AisleRepository {
 
     suspend fun verifyOtp(verifyOtpRequest: VerifyOtpRequest) =
         RetrofitInstance.api.verifyOtp(verifyOtpRequest)
+
+    suspend fun getNotes(auth: String) =
+        RetrofitInstance.api.getNotes(auth)
 }

@@ -50,7 +50,7 @@ class UserVerificationViewModel(private val aisleRepository: AisleRepository, ap
             if (hasInternetConnection(connectivityManager)) {
                 val phoneNumberRequest = PhoneNumberApiRequest("+919876543212")
                 val response = aisleRepository.verifyPhoneNumber(phoneNumberRequest)
-                _verifyPhoneNumberResult.postValue(verifyPhoneNumberApiResponse(response))
+                _verifyPhoneNumberResult.postValue(handleVerifyPhoneNumberApiResponse(response))
             } else {
                 _verifyPhoneNumberResult.postValue(Resource.Error("No internet connection"))
             }
@@ -62,7 +62,7 @@ class UserVerificationViewModel(private val aisleRepository: AisleRepository, ap
         }
     }
 
-    private fun verifyPhoneNumberApiResponse(response: Response<PhoneNumberApiResponse>): Resource<PhoneNumberApiResponse> {
+    private fun handleVerifyPhoneNumberApiResponse(response: Response<PhoneNumberApiResponse>): Resource<PhoneNumberApiResponse> {
         if (response.isSuccessful) {
             response.body()?.let { resultResponse ->
                 return Resource.Success(resultResponse)
