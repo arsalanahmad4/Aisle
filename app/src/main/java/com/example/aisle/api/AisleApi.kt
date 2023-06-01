@@ -1,12 +1,8 @@
 package com.example.aisle.api
 
-import com.example.aisle.data.model.PhoneNumberApiRequest
-import com.example.aisle.data.model.PhoneNumberApiResponse
-import com.example.aisle.data.model.VerifyOtpRequest
-import com.example.aisle.data.model.VerifyOtpResponse
+import com.example.aisle.data.model.*
 import retrofit2.Response
-import retrofit2.http.Body
-import retrofit2.http.POST
+import retrofit2.http.*
 
 interface AisleApi {
 
@@ -15,4 +11,9 @@ interface AisleApi {
 
     @POST("users/verify_otp")
     suspend fun verifyOtp(@Body verifyOtpRequest: VerifyOtpRequest): Response<VerifyOtpResponse>
+
+    @GET("users/test_profile_list")
+    suspend fun getNotes(
+        @Header("Authorization") auth: String,
+    ): Response<NotesApiResponse>
 }
