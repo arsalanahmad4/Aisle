@@ -2,6 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rootLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="30dp">
@@ -17,33 +18,40 @@
         android:orientation="horizontal">
 
         <TextView
+            android:id="@+id/tvEnteredPhoneNumber"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="18dp"
-            tools:text="+91 9999999999" />
+            android:textSize="18sp"
+            tools:text="+91 9999999999"
+            android:textColor="@color/black"
+            android:fontFamily="@font/inter_light"/>
 
         <ImageView
+            android:id="@+id/icEditNumber"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
+            android:layout_height="match_parent"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
             android:src="@drawable/ic_edit_number" />
     </LinearLayout>
 
 
     <TextView
-        android:id="@+id/tvEnterNumber"
+        android:id="@+id/tvEnterNumberHeading"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/layoutPhoneNumber"
         android:layout_marginTop="4dp"
         android:text="@string/text_enter_the_otp"
-        android:textSize="32dp" />
+        android:textSize="32sp"
+        android:fontFamily="@font/inter_bold"
+        android:textColor="@color/black"/>
 
     <androidx.appcompat.widget.AppCompatEditText
-        android:id="@+id/etMobileNumber"
+        android:id="@+id/etOtp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/tvEnterNumber"
+        android:layout_below="@id/tvEnterNumberHeading"
         android:layout_marginTop="16dp"
         android:background="@drawable/rounded_edit_text_stroke_selector"
         android:digits="0123456789"
@@ -54,12 +62,13 @@
         android:minWidth="120dp"
         android:padding="10dp"
         android:singleLine="true"
-        android:textSize="24sp" />
+        android:textSize="24sp"
+        android:fontFamily="@font/inter_semibold"/>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/etMobileNumber"
+        android:layout_below="@id/etOtp"
         android:layout_marginTop="16dp"
         android:orientation="horizontal">
         <androidx.appcompat.widget.AppCompatButton
@@ -74,13 +83,16 @@
             android:text="@string/text_continue"
             android:textAllCaps="false"
             android:textColor="@color/black"
-            android:textSize="16sp" />
+            android:textSize="16sp"
+            android:fontFamily="@font/inter_semibold"/>
 
         <TextView
             android:id="@+id/otpTimer"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="18dp"/>
+            android:textSize="18sp"
+            android:fontFamily="@font/inter_semibold"
+            android:layout_marginStart="12dp"/>
 
         <ProgressBar
             android:id="@+id/loading"
@@ -88,7 +100,7 @@
             android:layout_height="24dp"
             android:layout_gravity="center"
             android:visibility="gone"
-            android:layout_marginStart="36dp"/>
+            android:layout_marginStart="12dp"/>
     </LinearLayout>
 
 

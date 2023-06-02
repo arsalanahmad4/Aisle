@@ -47,7 +47,7 @@
             android:background="#80000000"/>
 
         <TextView
-            android:id="@+id/myTextView"
+            android:id="@+id/tvProfileInfo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_above="@+id/tvTapToReview"

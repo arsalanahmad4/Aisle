@@ -1,6 +1,7 @@
 package com.example.aisle.utils
 
 import android.annotation.SuppressLint
+import android.app.Activity
 import android.content.Context
 import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
@@ -37,3 +38,20 @@ fun hasInternetConnection(connectivityManager: ConnectivityManager) : Boolean{
     }
     return false
 }
+
+fun hideKeyboard(context: Context, view: View?) {
+    val imm: InputMethodManager =
+        context.getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
+    imm.hideSoftInputFromWindow(view?.getWindowToken(), 0)
+}
+
+fun String.isValidIndianMobileNumber(): Boolean {
+    val mobileNumberPattern = Regex("^[6-9]\\d{9}$")
+    return mobileNumberPattern.matches(this)
+}
+
+fun String.isValidOTP(): Boolean {
+    val otpPattern = Regex("^\\d{4}$")
+    return otpPattern.matches(this)
+}
+
