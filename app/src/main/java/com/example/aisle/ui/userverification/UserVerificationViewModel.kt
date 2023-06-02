@@ -13,6 +13,7 @@ import com.example.aisle.data.model.PhoneNumberApiRequest
 import com.example.aisle.data.model.PhoneNumberApiResponse
 import com.example.aisle.data.model.VerifyOtpRequest
 import com.example.aisle.data.model.VerifyOtpResponse
+import com.example.aisle.utils.MutableAppropriateLiveData
 import com.example.aisle.utils.Resource
 import com.example.aisle.utils.hasInternetConnection
 import kotlinx.coroutines.launch
@@ -22,11 +23,11 @@ import java.io.IOException
 class UserVerificationViewModel(private val aisleRepository: AisleRepository, app: Application) :
     AndroidViewModel(app) {
 
-    private val _verifyPhoneNumberResult = MutableLiveData<Resource<PhoneNumberApiResponse>>()
+    private val _verifyPhoneNumberResult = MutableAppropriateLiveData<Resource<PhoneNumberApiResponse>>()
     val verifyPhoneNumberResult: LiveData<Resource<PhoneNumberApiResponse>> =
         _verifyPhoneNumberResult
 
-    private val _verifyOtpResult = MutableLiveData<Resource<VerifyOtpResponse>>()
+    private val _verifyOtpResult = MutableAppropriateLiveData<Resource<VerifyOtpResponse>>()
     val verifyOtpResult: LiveData<Resource<VerifyOtpResponse>> = _verifyOtpResult
 
     fun verifyPhoneNumber(number: String) {
@@ -48,7 +49,7 @@ class UserVerificationViewModel(private val aisleRepository: AisleRepository, ap
                 Context.CONNECTIVITY_SERVICE
             ) as ConnectivityManager
             if (hasInternetConnection(connectivityManager)) {
-                val phoneNumberRequest = PhoneNumberApiRequest("+919876543212")
+                val phoneNumberRequest = PhoneNumberApiRequest("+91$number")
                 val response = aisleRepository.verifyPhoneNumber(phoneNumberRequest)
                 _verifyPhoneNumberResult.postValue(handleVerifyPhoneNumberApiResponse(response))
             } else {
@@ -78,7 +79,7 @@ class UserVerificationViewModel(private val aisleRepository: AisleRepository, ap
                 Context.CONNECTIVITY_SERVICE
             ) as ConnectivityManager
             if (hasInternetConnection(connectivityManager)) {
-                val verifyOtpRequest = VerifyOtpRequest("+919876543212", "1234")
+                val verifyOtpRequest = VerifyOtpRequest("+91$number", otp)
                 val response = aisleRepository.verifyOtp(verifyOtpRequest)
                 _verifyOtpResult.postValue(handleVerifyOtpResponse(response))
             } else {

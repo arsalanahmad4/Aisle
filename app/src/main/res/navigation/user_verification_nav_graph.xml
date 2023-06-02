@@ -8,6 +8,11 @@
         android:id="@+id/enterNumberFragment"
         android:name="com.example.aisle.ui.userverification.enternumber.EnterNumberFragment"
         android:label="EnterNumberFragment" >
+        <argument
+            android:name="number"
+            app:argType="string"
+            app:nullable="true"
+            android:defaultValue="" />
         <action
             android:id="@+id/action_enterNumberFragment_to_otpScreenFragment"
             app:destination="@id/otpScreenFragment" />
@@ -16,9 +21,10 @@
         android:id="@+id/otpScreenFragment"
         android:name="com.example.aisle.ui.userverification.verifyotp.OtpScreenFragment"
         android:label="OtpScreenFragment" >
+        <argument android:name="number"
+            app:argType="string" />
         <action
             android:id="@+id/action_otpScreenFragment_to_enterNumberFragment"
-            app:destination="@id/enterNumberFragment"
-            app:launchSingleTop="false" />
+            app:destination="@id/enterNumberFragment" />
     </fragment>
 </navigation>

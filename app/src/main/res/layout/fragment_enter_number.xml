@@ -2,6 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rootLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="30dp">
@@ -14,7 +15,9 @@
         android:layout_marginTop="50dp"
         android:layout_marginBottom="4dp"
         android:text="@string/text_enter_otp"
-        android:textSize="18dp" />
+        android:textSize="18sp"
+        android:textColor="@color/black"
+        android:fontFamily="@font/inter_light"/>
 
     <TextView
         android:id="@+id/tvEnterNumber"
@@ -23,7 +26,9 @@
         android:layout_below="@id/tvGetOtp"
         android:layout_marginTop="4dp"
         android:text="@string/text_enter_number"
-        android:textSize="32dp" />
+        android:textSize="32sp"
+        android:fontFamily="@font/inter_bold"
+        android:textColor="@color/black"/>
 
     <LinearLayout
         android:id="@+id/layoutEnterNumber"
@@ -53,7 +58,8 @@
                 android:layout_marginStart="8dp"
                 android:text="+91"
                 android:textColor="@color/black"
-                android:textSize="24sp" />
+                android:textSize="24sp"
+                android:fontFamily="@font/inter_semibold"/>
 
         </LinearLayout>
 
@@ -61,7 +67,7 @@
             android:id="@+id/etMobileNumber"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="16dp"
+            android:layout_marginStart="16dp"
             android:layout_weight="4"
             android:background="@drawable/rounded_edit_text_stroke_selector"
             android:digits="0123456789"
@@ -71,16 +77,22 @@
             android:maxLines="1"
             android:padding="10dp"
             android:singleLine="true"
-            android:textSize="24sp" />
+            android:textSize="24sp"
+            android:fontFamily="@font/inter_semibold"/>
 
     </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/layoutEnterNumber"
+        android:layout_marginTop="16dp"
+        android:orientation="horizontal">
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnContinue"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/layoutEnterNumber"
-        android:layout_marginTop="16dp"
         android:background="@drawable/button_background"
         android:paddingLeft="16dp"
         android:paddingTop="10dp"
@@ -89,17 +101,17 @@
         android:text="@string/text_continue"
         android:textAllCaps="false"
         android:textColor="@color/black"
-        android:textSize="16sp" />
+        android:textSize="16sp"
+        android:fontFamily="@font/inter_semibold"/>
 
-    <ProgressBar
-        android:id="@+id/loading"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
-        android:layout_gravity="center"
-        android:visibility="gone"
-        android:layout_toRightOf="@id/btnContinue"
-        android:layout_below="@id/layoutEnterNumber"
-        android:layout_marginTop="26dp"
-        android:layout_marginLeft="16dp" />
+        <ProgressBar
+            android:id="@+id/loading"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_gravity="center"
+            android:visibility="gone"
+            android:layout_marginStart="12dp"/>
+
+    </LinearLayout>
 
 </RelativeLayout>
